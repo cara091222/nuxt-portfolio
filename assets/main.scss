@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+JP:wght@200..900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css');
+@import 'swiper/swiper-bundle.css';
+
+body, figure, 
+h1, h2, h3, h4, h5, h6,
+ol, p, ul{
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --vh: 100vh;
+}
+
+/*  ===== 整站基本設定 ===== */
+body{
+    // chrome文字平滑化
+    -webkit-font-smoothing: antialiased;
+    // 解決觸控螢幕擊放大問題
+    touch-action: manipulation;
+    // 解決firefox 字體粗度問題
+    -moz-osx-font-smoothing: grayscale;
+    word-break: break-word;
+    --admin-bar-height: 0px;
+
+    // 基礎字體 font-size , font-weight , letter-spacing: , line-height
+    @include mix.d-fontF;
+    @include mix.fz(16);
+    font-weight: 400;
+    @include mix.ls(1.28,16);
+    line-height: 25.6px;
+    color: var(--color-black);
+    
+
+    // default color
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    // customize color
+    --color-main: #31FFC1;
+    --color-sec: #737373;
+    --color-linear: linear-gradient(116deg, rgba(50, 238, 255, 0.50) 16.25%, rgba(49, 255, 193, 0.50) 83.75%);
+
+    &.admin-bar{
+        --admin-bar-height: 32px;
+
+        @include bp.media-down(md){
+            --admin-bar-height: 46px;
+        }
+    }
+
+    &.locked{
+        overflow: hidden;
+    }
+
+    .e-con{
+        padding: 0px;
+    }
+
+    // 全站列點樣式消除
+    ul,i,ol {
+        list-style: none;
+        list-style-position: inside;
+    }
+    
+    ul,li,ol{
+        &.list-style-none{
+            list-style-type: none;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+}
+
+// elementor圖片設定
+.elementor{
+    .img-cover{
+        img{
+            height: 100%;
+        }
+    }
+
+    .iframe-cover{
+        iframe{
+            height: 100%;
+        }
+    }
+}
+
+/*  ===== 媒體設定 ===== */
+// 如果 <img> 需要等比縮放外面固定加上此 class , 寬高比例依照不同需求用上層 class 區分另外寫
+.img-cover{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    transition: all .5s ease;
+
+    img{
+        @include mix.poa-center;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// video & iframe 用 , 邏輯同上
+.iframe-cover, .video-cover{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+
+    video, iframe{
+        @include mix.poa-center;
+        object-fit: cover;
+        width: 100%; 
+        height: 100%;
+    }
+}
+
+/*  ===== 整站container設定 ===== */
+.container-share {
+    position: relative;
+    width: 100%;
+    max-width: 1540px;
+    margin: 0 auto;
+    padding: 0px 50px;
+
+    @include bp.media-down(xl){
+        padding: 0px 30px;
+    }
+
+    @include bp.media-down(sm){
+        padding: 0px 20px;
+    }
+}
+
+/*  ===== 整站文字設定 ===== */
+.title-main-share{
+    @include mix.d-fontF;
+    @include mix.fz(46);
+    @include mix.ls(2.3,46);
+    font-weight: 700;
+    line-height: 1.0;
+    color: var(--color-white);
+
+    @include bp.media-down(lg){
+        @include mix.fz(32);
+    }
+
+    &.center {
+        text-align: center;
+    }
+}
+
+.title-medium-share{
+    @include mix.d-fontF;
+    @include mix.fz(32);
+    font-weight: 700;
+    @include mix.ls( 2.56,32);
+    line-height: 1.6;
+    color: var(--color-white);
+
+    @include bp.media-down(lg){
+        @include mix.fz(24);
+    }
+
+    @include bp.media-down(sm){
+        @include mix.fz(18);
+    }
+
+    &.center{
+        text-align: center
+    }
+
+    &.blue {
+        color: var(--color-main) ;
+    }
+
+    &.black {
+        color: var(--color-black) ;
+    }
+}
+
+.title-small-share{
+    @include mix.d-fontF;
+    @include mix.fz(20);
+    @include mix.ls(1.6,20);
+    font-weight: 700;
+    line-height: 2.0;
+    color: var(--color-white);
+
+    @include bp.media-down(sm){
+        @include mix.fz(15);
+    }
+
+    &.center{
+        text-align: center
+    }
+}
+
+
+/*  ===== 整站btn設定 ===== */
+.btn-main {
+    @include mix.d-flex (center,center);
+    padding: 10px 40px;
+    gap: 10px;
+    font-weight: bold;
+    border-radius: 100px;
+    background: #00B1C8;
+    box-shadow: 0px 5px 0px 0px #008DA0;
+    color: #fff;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        transform: translateY(3px);
+        box-shadow: 0px 2px 0px 0px #008DA0;
+    }
+
+    &:active {
+        transform: translateY(5px);
+        box-shadow: 0px 0px 0px 0px #008DA0;
+    }
+}
+
+.btn-sec {
+    @include mix.d-flex (center,center);
+    max-width: 150px;
+    width: 100%;
+    padding: 10px 40px;
+    gap: 10px;
+    font-weight: bold;
+    border-radius: 100px;
+    background: var(--color-sec);
+    box-shadow: 0px 5px 0px 0px #FFD49A;
+    color: #fff;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        transform: translateY(3px);
+        box-shadow: 0px 2px 0px 0px #ffd39aca;
+    }
+
+    &:active {
+        transform: translateY(5px);
+        box-shadow: 0px 0px 0px 0px #ffd39aca;
+    }
+}
+
+/*  ===== 整站動態設定 ===== */
+.animation__el{
+    transition: all 0.6s ease-in-out;
+
+    &.delay {
+        opacity: 0;
+    }
+
+    &.slow{
+        transition: all 1.2s ease-in-out;
+    }
+
+    &.fadeUp{
+        transform: translateY(50px);
+        opacity: 0;
+
+        &.in{
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        &.delay__750{
+            transition-delay: .75s;
+        }
+
+        &.delay__1000{
+            transition-delay: 1s;
+        }
+
+        &.delay__1500{
+            transition-delay: 1.2s;
+        }
+    }
+
+    &.fadeUp2 {
+        transform: translate(50px,150px);
+        opacity: 0;
+
+        &.in{
+            transform: translate(0);
+            opacity: 1;
+        }
+    }
+
+    &.fadeIn{
+        opacity: 0;
+
+        &.in{
+            opacity: 1;
+        }
+    }
+
+    &.fadeRight{
+        transform: translateX(60px);
+        opacity: 0;
+
+        &.in{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    &.fadeLeft{
+        transform: translateX(-60px);
+        opacity: 0;
+
+        &.in{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    &.fadeLeftLarge{
+        transform: translateX(-100%);
+        opacity: 0;
+
+        &.in{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    &.zoomIn{
+        transform: translate(0%,250%) scale(3);
+        opacity: 0;
+        transition-delay: .5s;
+
+        &.in{
+            transform: translate(0%,0%) scale(1);
+            opacity: 1;
+        }
+
+        &.delay{
+            transition-delay: 1.2s;
+        }
+    }
+
+    &.zoomOut {
+        transform: scale3d(0.3, 0.3, 0.3) translateZ(-500px);
+        opacity: 0;
+        transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        transition-delay: 0.5s;
+    
+        &.in {
+            transform: scale3d(1, 1, 1) translateZ(0);
+            opacity: 1;
+        }
+    
+        &.delay {
+            transition-delay: 2s;
+        }
+    }
+    
+    
+    .fadeRightMedium{
+        transition: all 1s ease;
+        transform: translateX(100%);
+        opacity: 0;
+
+        &.delay__750{
+            transition-delay: .75s;
+        }
+
+        &.delay__1500{
+            transition-delay: 1.5s;
+        }
+
+        &.delay__2250{
+            transition-delay: 2.25s;
+        }
+    
+        &.delay__3000{
+            transition-delay: 3s;
+        }
+    
+        &.delay__3750{
+            transition-delay: 3.75s;
+        }
+    
+        &.delay__4500{
+            transition-delay: 4.5s;
+        }
+    
+        &.delay__5250{
+            transition-delay: 5.25s;
+        }
+    }
+
+    &.in{
+        .fadeRightMedium{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+}
+
+
+
