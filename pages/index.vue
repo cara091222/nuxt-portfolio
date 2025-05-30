@@ -8,30 +8,27 @@
                         <h2 class="subtitle">Web Front End / Web Designer</h2>
                         <information />
                         <div class="img">
-                            <img src="/素材/pic.png" alt="" />
+                            <img src="/images/pic.png" alt="" />
                         </div>
                     </div>
                 </div>
                 <Marquee />
+                <div class="circle-yello-top"></div>
             </div>
-            <div class="circle-blue"></div>
-            <div class="circle-yello"></div>
-            <div class="circle-yello-top"></div>
+            <div class="scrolling">
+                <HomeAbout />
+                <div class="circle-blue"></div>
+                <div class="circle-yello"></div>
+            </div>
+
+
         </div>
     </div>
 </template>
 
-<script>
-import $ from "jquery";
-
-export default {
-    mounted() { },
-};
-</script>
-
 <style lang="scss">
 .home-page {
-    @include mix.bg;
+    // @include mix.bg;
     position: relative;
 
     .circle-blue {
@@ -158,6 +155,12 @@ export default {
     }
 
     .home-top {
+        position: fixed;
+        height: auto !important;
+        z-index: 10;
+        @include mix.bg;
+        overflow: hidden;
+
         .content {
             max-height: 445px;
             position: relative;
@@ -166,7 +169,7 @@ export default {
             &-wrap {
                 padding: 60px 50px 40px 50px;
 
-                @include bp.media-down(sm) {
+                @include bp.media-down(jumbo) {
                     padding: 30px;
                 }
             }
@@ -233,7 +236,7 @@ export default {
             right: 50px;
             bottom: 0;
 
-            @include bp.media-down(xxl) {
+            @include bp.media-down(jumbo) {
                 width: 280px;
                 height: auto;
             }
@@ -247,6 +250,22 @@ export default {
                 height: 100%;
                 object-fit: cover;
             }
+        }
+    }
+
+    .scrolling {
+        @include mix.bg;
+        position: absolute;
+        z-index: 9;
+        margin-top: 427px;
+        overflow: hidden;
+
+        @include bp.media-down(jumbo) {
+            margin-top: 366px;
+        }
+
+        @include bp.media-down(sm) {
+            margin-top: 358px;
         }
     }
 }

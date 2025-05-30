@@ -1,33 +1,30 @@
 <template>
     <div class="marquee">
         <div class="marquee_wrap">
-            <span>UI</span>
-            <span>UX</span>
-            <span>Graphic Design</span>
-            <span>Ｗeb Design</span>
-            <span>UI</span>
-            <span>UX</span>
-            <span>Graphic Design</span>
-            <span>Ｗeb Design</span>
-            <span>UI</span>
-            <span>UX</span>
-            <span>Graphic Design</span>
-            <span>Ｗeb Design</span>
-            <span>UI</span>
-            <span>UX</span>
-            <span>Graphic Design</span>
-            <span>Ｗeb Design</span>
-            <span>UI</span>
-            <span>UX</span>
-            <span>Graphic Design</span>
-            <span>Ｗeb Design</span>
-            <span>UI</span>
-            <span>UX</span>
-            <span>Graphic Design</span>
-            <span>Ｗeb Design</span>
+            <span v-for="(item, index) in repeatedItems" :key="index">
+                {{ item }}
+            </span>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            baseItems: ["UI", "UX", "Graphic Design", "Ｗeb Design"],
+            repeatCount: 10 // 重複幾次修改這個數字
+        };
+    },
+    computed: {
+        repeatedItems() {
+            return Array.from({ length: this.repeatCount })
+                .flatMap(() => this.baseItems);
+        }
+    }
+};
+</script>
+
 
 <style lang="scss">
 .marquee {

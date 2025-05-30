@@ -17,12 +17,12 @@ export default {
         return {
             info: [
                 {
-                    icon: '/素材/phone_svgrepo.com.svg',
+                    icon: '/images/phone_svgrepo.com.svg',
                     text: '0968 - 915 - 912',
                     link: 'tel:0968915912',
                 },
                 {
-                    icon: '/素材/email_svgrepo.com.svg',
+                    icon: '/images/email_svgrepo.com.svg',
                     text: 'cara091222@gmail.com',
                     link: 'mailto:cara091222@gmail.com',
                 },
