@@ -8,7 +8,7 @@
                         <h2 class="subtitle">Web Front End / Web Designer</h2>
                         <information />
                         <div class="img">
-                            <img src="/images/pic.png" alt="" />
+                            <img src="/images/pic_02.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -17,11 +17,11 @@
             </div>
             <div class="scrolling">
                 <HomeAbout />
+                <HomeProfessional />
+                <HomeExperience />
                 <div class="circle-blue"></div>
                 <div class="circle-yello"></div>
             </div>
-
-
         </div>
     </div>
 </template>
@@ -255,10 +255,10 @@
 
     .scrolling {
         @include mix.bg;
+        height: auto !important;
         position: absolute;
         z-index: 9;
         margin-top: 427px;
-        overflow: hidden;
 
         @include bp.media-down(jumbo) {
             margin-top: 366px;

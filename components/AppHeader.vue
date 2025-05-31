@@ -5,7 +5,7 @@
             <nav class="app-nav">
                 <ul class="nav-wrap">
                     <li class="main-item"><a href="#HomeAbout">關於我</a></li>
-                    <li class="main-item"><a href="">工作經歷</a></li>
+                    <li class="main-item"><a href="#HomeExperience">工作經歷</a></li>
                     <li class="main-item">
                         <a href="">作品集</a>
                         <ul class="nav-sec">
@@ -73,16 +73,20 @@ export default {
             jQuery("html, body").animate({ scrollTop: 0 }, 600);
         });
 
+        // 點擊滾動到對應的區塊
         jQuery('a[href^="#"]').on('click', function (e) {
-            const target = jQuery(this.getAttribute('href'));
-            if (target.length) {
-                e.preventDefault();
-                jQuery('html, body').animate({
-                    scrollTop: target.offset().top - 300
-                }, 600); // 600 毫秒滑動
+            const href = this.getAttribute('href');
+            // 排除 href 僅為 "#" 的情況
+            if (href && href.length > 1) {
+                const target = jQuery(href);
+                if (target.length) {
+                    e.preventDefault();
+                    jQuery('html, body').animate({
+                        scrollTop: target.offset().top - 300
+                    }, 600);
+                }
             }
         });
-
     },
 };
 </script>
@@ -114,7 +118,7 @@ export default {
         left: 0;
         right: 0;
         bottom: 0;
-        // background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.2);
         z-index: 999;
     }
 

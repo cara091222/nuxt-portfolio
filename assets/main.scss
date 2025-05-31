@@ -163,18 +163,14 @@ body{
 
 .title-medium-share{
     @include mix.d-fontF;
-    @include mix.fz(32);
+    @include mix.fz(28);
     font-weight: 700;
-    @include mix.ls( 2.56,32);
-    line-height: 1.6;
-    color: var(--color-white);
+    @include mix.ls( 0.56,28);
+    line-height: normal;
+    color: var(--color-black);
 
     @include bp.media-down(lg){
-        @include mix.fz(24);
-    }
-
-    @include bp.media-down(sm){
-        @include mix.fz(18);
+        @include mix.fz(22);
     }
 
     &.center{
@@ -192,15 +188,11 @@ body{
 
 .title-small-share{
     @include mix.d-fontF;
-    @include mix.fz(20);
-    @include mix.ls(1.6,20);
+    @include mix.fz(18);
+    @include mix.ls(0.44,18);
     font-weight: 700;
-    line-height: 2.0;
-    color: var(--color-white);
-
-    @include bp.media-down(sm){
-        @include mix.fz(15);
-    }
+    line-height: normal;
+    color: var(--color-black);
 
     &.center{
         text-align: center
@@ -214,10 +206,35 @@ body{
     font-weight: 700;
     line-height: normal;
 
-     @include bp.media-down(sm){
+    @include bp.media-down(sm){
         @include mix.fz(68);
     }
     
+}
+
+.title-share {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px dashed var(--color-black) ;
+    // padding: 0 10px 30px 10px;
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 60px;
+    padding-bottom: 30px;
+
+    @include bp.media-down(xl) {
+        margin-bottom: 30px;
+    }
+
+    @include bp.media-down(sm) {
+        padding-bottom: 15px;
+    }
+
+    .title-main-share {
+        @include mix.poa-center;
+    }
 }
 
 /*  ===== 共用padding設定 ===== */
@@ -240,7 +257,6 @@ body{
         padding: 30px 0 ;
     }
 }
-
 
 /*  ===== 整站btn設定 ===== */
 .btn-main {
