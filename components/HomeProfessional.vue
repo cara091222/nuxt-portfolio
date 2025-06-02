@@ -149,7 +149,7 @@ export default {
             @include bp.media-down(xl) {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 10px;
+                gap: 5px;
             }
 
             .title {
@@ -194,7 +194,7 @@ export default {
             }
         }
 
-        .item+.item {
+        .item +.item {
             padding-top: 35px;
 
             @include bp.media-down(sm) {

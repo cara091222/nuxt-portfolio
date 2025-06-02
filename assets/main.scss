@@ -209,6 +209,10 @@ body{
     @include bp.media-down(sm){
         @include mix.fz(68);
     }
+
+    @include bp.media-down(xs){
+        @include mix.fz(58);
+    }
     
 }
 

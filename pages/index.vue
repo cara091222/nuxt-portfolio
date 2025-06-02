@@ -19,6 +19,8 @@
                 <HomeAbout />
                 <HomeProfessional />
                 <HomeExperience />
+                <HomePortfolio />
+                <AppFooter />
                 <div class="circle-blue"></div>
                 <div class="circle-yello"></div>
             </div>

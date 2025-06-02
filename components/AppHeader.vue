@@ -7,7 +7,7 @@
                     <li class="main-item"><a href="#HomeAbout">關於我</a></li>
                     <li class="main-item"><a href="#HomeExperience">工作經歷</a></li>
                     <li class="main-item">
-                        <a href="">作品集</a>
+                        <a href="#HomePortfolio">作品集</a>
                         <ul class="nav-sec">
                             <li class="sec-item"><a href="">平面設計</a></li>
                             <li class="sec-item"><a href="">UI / UX</a></li>

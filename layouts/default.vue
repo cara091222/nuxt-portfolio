@@ -2,5 +2,6 @@
     <div>
         <AppHeader />
         <slot />  
+        
     </div>
 </template>

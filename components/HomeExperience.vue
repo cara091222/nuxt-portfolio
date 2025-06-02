@@ -9,7 +9,7 @@
                 <!-- timeline -->
                 <div class="swiper timeline-swiper">
                     <div class="swiper-wrapper timeline-wrapper">
-                        <div v-for="(item , index) in years" :key="index" class="swiper-slide timeline-slide">
+                        <div v-for="(item, index) in years" :key="index" class="swiper-slide timeline-slide">
                             <p class="timeline-slide-year">{{ item.year }}</p>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                 <!-- 經歷 -->
                 <div class="swiper content-swiper">
                     <div class="swiper-wrapper content-wrapper">
-                        <div v-for="(item , index) in content" :key="index" class="swiper-slide content-slide">
+                        <div v-for="(item, index) in content" :key="index" class="swiper-slide content-slide">
                             <div class="info">
                                 <div class="logo">
                                     <img :src="item.logo" alt="">
@@ -119,30 +119,52 @@ export default {
 
     setup() {
         onMounted(() => {
-            // 初始化兩個 Swiper
+            // 初始化 timeline swiper
             const timelineSwiper = new Swiper('.timeline-swiper', {
                 slidesPerView: 1,
-                // autoplay: {
-                //     delay: 6000,
-                //     disableOnInteraction: false,
-                // },
+                centeredSlides: true,
+                speed: 1500,
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false,
+                },
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
                 },
             });
 
+            // 初始化 content swiper
             const contentSwiper = new Swiper('.content-swiper', {
                 slidesPerView: 1,
-                // autoplay: {
-                //     delay: 6000,
-                //     disableOnInteraction: false,
-                // },
+                centeredSlides: true,
+                speed: 1500,
+                spaceBetween: 150,
             });
 
-            // 設定連動
-            timelineSwiper.controller.control = contentSwiper;
-            contentSwiper.controller.control = timelineSwiper;
+            // 同步兩個 Swiper 的索引
+            function syncTimelineSwiper(index) {
+                timelineSwiper.slideToLoop(index);
+            }
+
+            function syncContentSwiper(index) {
+                contentSwiper.slideToLoop(index);
+            }
+
+            // 當 contentSwiper 改變時，手動更新 timelineSwiper
+            contentSwiper.on('slideChange', () => {
+                const realIndex = contentSwiper.realIndex;
+                syncTimelineSwiper(realIndex);
+            });
+
+            // 當 timelineSwiper 改變時，手動更新 contentSwiper
+            timelineSwiper.on('slideChange', () => {
+                const realIndex = timelineSwiper.realIndex;
+                syncContentSwiper(realIndex);
+            });
+
+            // 初始化時同步兩邊
+            syncTimelineSwiper(contentSwiper.realIndex);
         });
     },
 };
@@ -222,6 +244,24 @@ export default {
                     border: 1px solid var(--color-main);
                     border-radius: 50%;
                     box-sizing: border-box;
+                    animation: pulseRing 2s infinite ease-in-out;
+                }
+
+                @keyframes pulseRing {
+                    0% {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+
+                    50% {
+                        transform: scale(1.2);
+                        opacity: 0.5;
+                    }
+
+                    100% {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -258,7 +298,7 @@ export default {
 
             .info {
                 @include mix.d-flex(center, center, column);
-                
+
 
                 @include bp.media-down(lg) {
                     flex-direction: row;
