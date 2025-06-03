@@ -4,12 +4,12 @@
         <div class="appHeader-container">
             <nav class="app-nav">
                 <ul class="nav-wrap">
-                    <li class="main-item"><a href="#HomeAbout">關於我</a></li>
-                    <li class="main-item"><a href="#HomeExperience">工作經歷</a></li>
+                    <li class="main-item"><a class="main-link" data-hash="#HomeAbout">關於我</a></li>
+                    <li class="main-item"><a class="main-link" data-hash="#HomeExperience">工作經歷</a></li>
                     <li class="main-item">
-                        <a href="#HomePortfolio">作品集</a>
+                        <a class="main-link" data-hash="#HomePortfolio">作品集</a>
                         <ul class="nav-sec">
-                            <li class="sec-item"><a href="">平面設計</a></li>
+                            <li class="sec-item"><a href="/GraphicDesignPage">平面設計</a></li>
                             <li class="sec-item"><a href="">UI / UX</a></li>
                             <li class="sec-item"><a href="">網站設計</a></li>
                         </ul>
@@ -39,12 +39,30 @@
 import jQuery from "jquery";
 
 export default {
+    computed: {
+        isHomePage() {
+            return window.location.pathname === '/';
+        }
+    },
+    methods: {
+        getHref(hash) {
+            return this.isHomePage ? hash : `/${hash}`;
+        }
+    },
     mounted() {
         const $ = jQuery;
-        // 點擊 main-item 時切換 active
-        jQuery(".main-item > a").on("click", function () {
-            jQuery(".main-item").removeClass("active");
-            jQuery(this).parent().addClass("active"); // 👈 把 active 加在 li 上
+        // 主選單點擊時，只加在 main-link 上
+        jQuery(".main-link").on("click", function (e) {
+            jQuery(".main-link").removeClass("active");
+            jQuery(this).addClass("active");
+        });
+
+        // 子選單點擊時
+        jQuery(".sec-item a").on("click", function (e) {
+            e.stopPropagation();
+            console.log("clicked:", jQuery(this));
+            jQuery(".sec-item").removeClass("active");
+            jQuery(this).closest(".sec-item").addClass("active");
         });
 
         // 點擊漢堡選單
@@ -73,18 +91,40 @@ export default {
             jQuery("html, body").animate({ scrollTop: 0 }, 600);
         });
 
-        // 點擊滾動到對應的區塊
-        jQuery('a[href^="#"]').on('click', function (e) {
-            const href = this.getAttribute('href');
-            // 排除 href 僅為 "#" 的情況
-            if (href && href.length > 1) {
+        // JS：根據當前是否在首頁動態設定 href
+        jQuery(document).ready(function () {
+            const isHome = window.location.pathname === "/";
+
+            jQuery(".main-link").each(function () {
+                const hash = jQuery(this).data("hash");
+                const href = isHome ? hash : "/" + hash;
+                jQuery(this).attr("href", href);
+            });
+
+            // 點擊滑動效果（同前）
+            jQuery(".main-link[href^='#']").on("click", function (e) {
+                const href = jQuery(this).attr("href");
                 const target = jQuery(href);
                 if (target.length) {
                     e.preventDefault();
-                    jQuery('html, body').animate({
-                        scrollTop: target.offset().top - 300
-                    }, 600);
+                    jQuery("html, body").animate(
+                        { scrollTop: target.offset().top },
+                        800,
+                        "swing"
+                    );
                 }
+            });
+
+            // 頁面載入時若有 hash，也滑動
+            const hash = window.location.hash;
+            if (hash && jQuery(hash).length) {
+                setTimeout(() => {
+                    jQuery("html, body").animate(
+                        { scrollTop: jQuery(hash).offset().top },
+                        800,
+                        "swing"
+                    );
+                }, 200);
             }
         });
     },
@@ -176,29 +216,30 @@ export default {
         }
     }
 
-    .main-item a {
-        font-weight: 700;
-        padding: 5px 0;
+    .main-link {
         position: relative;
+        font-weight: bold;
+        padding: 5px 0;
 
         &::after {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             bottom: 0;
             width: 0;
             height: 3px;
             background: linear-gradient(102deg, #32eeff 4.57%, #31ffc1 38.64%);
-            transition: all 0.4s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
 
         &:hover::after {
             width: 100%;
         }
-    }
 
-    .main-item.active a::after {
-        width: 100%;
+        &.active::after {
+            width: 100%;
+        }
+
     }
 
     .nav-sec {
@@ -212,11 +253,13 @@ export default {
         }
     }
 
+
     .sec-item {
         font-size: 14px;
         font-weight: 400;
         padding-left: 20px;
         position: relative;
+        transition: all .3s ease-in-out;
 
         &::before {
             content: "";
@@ -225,6 +268,10 @@ export default {
             width: 6px;
             height: 1px;
             background: var(--color-black);
+        }
+
+        &.active {
+            font-weight: bold;
         }
     }
 

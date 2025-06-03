@@ -280,7 +280,7 @@ export default {
     // 內容
     .content-swiper {
         width: 100%;
-        padding-top: 57px;
+        padding-top: 35px;
 
         @include bp.media-down(lg) {
             padding-top: 20px;

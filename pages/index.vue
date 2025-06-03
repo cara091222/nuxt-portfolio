@@ -159,7 +159,7 @@
     .home-top {
         position: fixed;
         height: auto !important;
-        z-index: 10;
+        z-index: 9;
         @include mix.bg;
         overflow: hidden;
 
@@ -210,7 +210,8 @@
                 padding-bottom: 60px;
 
                 @include bp.media-down(sm) {
-                    padding: 10px 0 40px 0;
+                    padding: 0 0 40px 0;
+                    font-size: 22px;
                 }
             }
 
@@ -259,7 +260,7 @@
         @include mix.bg;
         height: auto !important;
         position: absolute;
-        z-index: 9;
+        z-index: 10;
         margin-top: 427px;
 
         @include bp.media-down(jumbo) {
@@ -267,7 +268,7 @@
         }
 
         @include bp.media-down(sm) {
-            margin-top: 358px;
+            margin-top: 300px;
         }
     }
 }

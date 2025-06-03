@@ -41,7 +41,7 @@ export default {
             {
                 img: '/images/graphic_design_cover.png',
                 title: 'Graphic Design',
-                link: '',
+                link: '/GraphicDesignPage',
             },
             {
                 img: '/images/ui_cover.png',
@@ -181,45 +181,12 @@ export default {
                 @include bp.media-down(jumbo) {
                     font-size: 24px;
                 }
+
+                @include bp.media-down(jumbo) {
+                    font-size: 20px;
+                }
             }
         }
     }
-
-    // 輪播箭頭
-    .button-wrap {
-        position: relative;
-        @include mix.d-flex(space-between, center);
-        width: 140px;
-        height: 50px;
-        margin: 0px auto 5px auto;
-
-        .swiper-button-prev,
-        .swiper-button-next {
-            position: absolute;
-            border: 1px solid var(--color-black);
-            border-radius: 50px;
-            width: 50px;
-            height: 50px;
-
-            &:active,
-            &:hover {
-                opacity: 0.3;
-                transition: all .2s ease-in-out;
-            }
-        }
-
-        .swiper-button-next {
-            bottom: 0;
-        }
-
-        .swiper-button-prev::after,
-        .swiper-button-next::after {
-            color: var(--color-black);
-            font-size: 20px;
-
-        }
-
-    }
-
 }
 </style>

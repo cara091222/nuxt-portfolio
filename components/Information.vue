@@ -54,5 +54,9 @@ export default {
 
 .info_items + .info_items {
     padding: 5px 0 0 0;
+
+    @include bp.media-down(sm) {
+        padding: 0;
+    }
 }
 </style>
