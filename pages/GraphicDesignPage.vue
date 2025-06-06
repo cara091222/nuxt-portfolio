@@ -2,14 +2,15 @@
     <div class="graphic-design-page">
         <ComponentBanner enName="Portfolio" nameHighlight="作品集" subtitle="Graphic Design" />
         <div class="scrolling">
+            <!-- banner -->
             <div class="banner padding-share">
                 <div class="container-share">
                     <div class="title">
                         <h2 class="en-title">Banner</h2>
                     </div>
-                    <h3 class="desc">
+                    <h3 class="desc ">
                         我常與不同的行銷單位合作，從主視覺到行銷宣傳，確保設計符合行銷目標。<br>
-                        我擅長設計清晰有力的Banner與E-DM，有效傳達資訊，並提升點擊率與轉換效果。
+                        擅長設計清晰有力的Banner與E-DM，有效傳達資訊，並提升點擊率與轉換效果。
                     </h3>
                 </div>
                 <div class="swiper banner-swiper">
@@ -34,14 +35,16 @@
                     </div>
                 </div>
             </div>
+            <!-- LP -->
+            <LandingPage />
             <div class="circle-blue"></div>
-            <div class="circle-yello"></div>
+            <div class="circle-yellow-b"></div>
         </div>
     </div>
 </template>
 
 <script>
-import { onMounted } from 'vue';
+import { onMounted, nextTick } from 'vue';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
@@ -127,8 +130,6 @@ export default {
                     date: '2021/07',
                     subtitle: '雙11活動廣告Banner',
                 },
-
-
             ]
         }
     },
@@ -137,10 +138,12 @@ export default {
         onMounted(() => {
             const bannerSwiper = new Swiper('.banner-swiper', {
                 centeredSlides: true,
+                speed: 3000,
                 loop: true,
                 autoplay: {
-                    delay: 3000,
+                    delay: 1000,
                     disableOnInteraction: false,
+                    pauseOnMouseEnter: false,
                 },
                 breakpoints: {
                     0: {
@@ -178,17 +181,96 @@ export default {
         position: absolute;
         z-index: 10;
         margin-top: 331px;
+        overflow: hidden;
 
         @include bp.media-down(jumbo) {
-            margin-top: 310px;
+            margin-top: 250px;
         }
 
         @include bp.media-down(lg) {
-            margin-top: 386px;
+            margin-top: 326px;
         }
 
         @include bp.media-down(sm) {
-            margin-top: 341px;
+            margin-top: 281px;
+        }
+    }
+
+    .circle-blue {
+        position: fixed;
+        z-index: -1;
+        top: 30rem;
+        right: -3rem;
+        width: 325px;
+        height: 325px;
+        border-radius: 325px;
+        background: linear-gradient(143deg, rgba(50, 238, 255, 0.50) 8.32%, rgba(49, 255, 193, 0.50) 92.78%);
+        filter: blur(50px);
+        animation: floatUpB 4s ease-in-out infinite;
+
+        @include bp.media-down(jumbo) {
+            width: 260px;
+            height: 260px;
+            // right: 10rem;
+        }
+
+        @include bp.media-down(lg) {
+            width: 200px;
+            height: 200px;
+        }
+
+        @keyframes floatUpB {
+            0% {
+                top: 30rem;
+            }
+
+            50% {
+                top: 24rem;
+            }
+
+            100% {
+                top: 30rem;
+            }
+        }
+    }
+
+    .circle-yellow-b {
+        position: fixed;
+        z-index: -1;
+        bottom: 5rem;
+        left: 13rem;
+        width: 240px;
+        height: 240px;
+        border-radius: 240px;
+        transform: rotate(-136.812deg);
+        background: linear-gradient(147deg, rgba(255, 154, 0, 0.50) 13.74%, rgba(255, 245, 49, 0.50) 90.25%);
+        filter: blur(50px);
+        animation: floatDownC 4s ease-in-out infinite;
+
+        @include bp.media-down(jumbo) {
+            width: 180px;
+            height: 180px;
+            left: 10rem;
+        }
+
+        @include bp.media-down(lg) {
+            width: 120px;
+            height: 120px;
+            left: 0rem;
+        }
+
+        @keyframes floatDownC {
+            0% {
+                bottom: 8rem;
+            }
+
+            50% {
+                bottom: 2rem;
+            }
+
+            100% {
+                bottom: 8rem;
+            }
         }
     }
 
@@ -230,12 +312,11 @@ export default {
             max-width: 780px;
             width: 100%;
             color: var(--color-sec);
-            @include mix.ls(0.4, 20);
+            @include mix.ls(0.4, 18);
             text-align: center;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 400;
             line-height: 33px;
-            letter-spacing: 0.4px;
 
             @include bp.media-down(sm) {
                 padding-top: 15px;
@@ -243,16 +324,18 @@ export default {
         }
 
         .banner-swiper {
-            padding: 80px 0;
+            padding-top: 80px;
+            
 
             @include bp.media-down(lg) {
-                padding: 40px 0;
+                padding-top: 40px;
             }
 
             .banner-wrapper {
                 margin: auto;
 
                 .banner-slide {
+                    transform: translateZ(0); 
                     border-radius: 20px;
                     overflow: hidden;
                     width: auto;
@@ -277,7 +360,7 @@ export default {
                         transform: translateY(100%);
                         opacity: 0;
                         transition: transform 0.4s ease, opacity 0.4s ease;
-                        pointer-events: none;
+                        // pointer-events: none;
 
                         @include bp.media-down(sm) {
                             position: relative;
@@ -326,7 +409,7 @@ export default {
 
                 @include bp.media-down(lg) {
                     margin-top: 30px;
-                    margin-left: 20px;
+                    margin-left: 10px;
                 }
             }
         }

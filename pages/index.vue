@@ -57,19 +57,19 @@
             height: 180px;
             left: -4rem;
         }
-    }
 
-    @keyframes floatUp {
-        0% {
-            bottom: 10rem;
-        }
+        @keyframes floatUp {
+            0% {
+                bottom: 10rem;
+            }
 
-        50% {
-            bottom: 13rem;
-        }
+            50% {
+                bottom: 16rem;
+            }
 
-        100% {
-            bottom: 10rem;
+            100% {
+                bottom: 10rem;
+            }
         }
     }
 
@@ -99,19 +99,19 @@
             height: 100px;
             left: 4rem;
         }
-    }
 
-    @keyframes floatDown {
-        0% {
-            bottom: 8rem;
-        }
+        @keyframes floatDown {
+            0% {
+                bottom: 8rem;
+            }
 
-        50% {
-            bottom: 6rem;
-        }
+            50% {
+                bottom: 2rem;
+            }
 
-        100% {
-            bottom: 8rem;
+            100% {
+                bottom: 8rem;
+            }
         }
     }
 
@@ -140,19 +140,20 @@
             height: 200px;
             right: 0;
         }
-    }
 
-    @keyframes floatDown-b {
-        0% {
-            top: -5rem;
-        }
+        @keyframes floatDown-b {
+            0% {
+                top: -9rem;
+                
+            }
 
-        50% {
-            top: -1rem;
-        }
+            50% {
+                top: -5rem;
+            }
 
-        100% {
-            top: -5rem;
+            100% {
+                top: -9rem;
+            }
         }
     }
 
@@ -268,7 +269,7 @@
         }
 
         @include bp.media-down(sm) {
-            margin-top: 300px;
+            margin-top: 301px;
         }
     }
 }

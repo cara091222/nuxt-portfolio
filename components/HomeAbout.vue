@@ -91,7 +91,7 @@ export default {
             padding: 30px;
             width: 100%;
             height: 100%;
-
+            
             @include bp.media-down(sm) {
                 width: 85%;
             }

@@ -45,9 +45,9 @@ export default {
         padding: 60px 50px;
         @include mix.d-flex(space-between, flex-end);
 
-        // @include bp.media-down(jumbo) {
-        //     padding: 30px;
-        // }
+        @include bp.media-down(jumbo) {
+            padding: 30px;
+        }
 
         @include bp.media-down(lg) {
             flex-direction: column;
@@ -111,9 +111,9 @@ export default {
         z-index: -1;
         animation: floatUp 4s ease-in-out infinite;
 
-        @include bp.media-down(xl) {
-            width:280px;
-            height: 280px;
+        @include bp.media-down(jumbo) {
+            width:260px;
+            height: 260px;
         }
 
         @keyframes floatUp {
@@ -122,7 +122,7 @@ export default {
         }
 
         50% {
-            top: -6rem;
+            top: -3rem;
         }
 
         100% {
