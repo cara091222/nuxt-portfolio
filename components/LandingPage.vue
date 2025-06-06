@@ -264,9 +264,9 @@ export default {
             }
 
             @include bp.media-down(sm) {
-                width: 90%;
+                width: 97%;
                 height: 400px;
-                border-radius: 40px;
+                border-radius: ˇ0px;
             }
         }
 
