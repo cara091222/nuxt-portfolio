@@ -302,7 +302,7 @@ export default {
                 text-align: center;
 
                 @include bp.media-down(sm) {
-                    font-size: 48px;
+                    font-size: 40px;
                 }
             }
         }

@@ -192,7 +192,7 @@ export default {
             text-align: center;
 
             @include bp.media-down(sm) {
-                font-size: 48px;
+                font-size: 40px;
             }
         }
     }
@@ -264,7 +264,7 @@ export default {
             }
 
             @include bp.media-down(sm) {
-                width: 88%;
+                width: 90%;
                 height: 400px;
                 border-radius: 40px;
             }
