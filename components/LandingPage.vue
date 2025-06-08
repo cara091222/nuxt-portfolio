@@ -4,28 +4,32 @@
             <div class="title">
                 <h2 class="en-title">Landing Page</h2>
             </div>
-            <h3 class="desc ">
-                Landing Page除了視覺統一，我有時也會親自拍攝商品，確保畫面的一致性。<br>
+            <h3 class="desc">
+                Landing Page除了視覺統一，我有時也會親自拍攝商品，確保畫面的一致性。
                 詳情頁面設計以引導使用者操作為重點，可以清楚了解商品的調性與用途。
             </h3>
         </div>
+
         <div class="landing-page-wrap">
-            <!-- mockup -->
+            <!-- mockup swiper -->
             <div class="mockup-frame">
                 <div class="swiper mockup-swiper">
                     <div class="swiper-wrapper mockup-wrapper">
-                        <div class="swiper-slide mockup-slide">
-                            <img src="/landingPage/01_orig.jpg" alt="" />
+                        <div v-for="(item, index) in gallery" :key="index" class="swiper-slide mockup-slide">
+                            <img :src="item.img" :alt="item.title" />
                         </div>
                     </div>
+                    <div class="swiper-scrollbar"></div>
                 </div>
             </div>
-            <!-- gallery -->
+
+            <!-- gallery swiper -->
             <div class="swiper gallery-swiper">
                 <div class="swiper-wrapper gallery-wrapper">
-                    <div v-for="(item, index) in gallery" :key="index" class="swiper-slide gallery-slide">
+                    <div v-for="(item, index) in gallery" :key="index" class="swiper-slide gallery-slide"
+                        @click="onGalleryClick(index)">
                         <div class="img">
-                            <img :src="item.img" alt="">
+                            <img :src="item.img" :alt="item.title" />
                         </div>
                         <div class="content">
                             <div class="top">
@@ -37,15 +41,16 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="button-wrap">
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
         </div>
-
     </div>
 </template>
+
 
 <script>
 import { onMounted, nextTick } from 'vue';
@@ -56,104 +61,69 @@ export default {
     data() {
         return {
             gallery: [
-                {
-                    img: '/landingPage/01_orig.jpg',
-                    title: '小米',
-                    date: '2020/11',
-                    subtitle: '拓牛智能垃圾桶 T3',
-                },
-                {
-                    img: '/landingPage/222_orig.jpg',
-                    title: '雲城',
-                    date: '2021/03',
-                    subtitle: 'Switch手把',
-                },
-                {
-                    img: '/landingPage/333_orig.jpg',
-                    title: '小米',
-                    date: '2021/03',
-                    subtitle: '米家感應夜燈',
-                },
-                {
-                    img: '/landingPage/444_orig.jpg',
-                    title: '小米',
-                    date: '2020/12',
-                    subtitle: '藍牙耳幾超級版',
-                },
-                {
-                    img: '/landingPage/555_orig.jpg',
-                    title: 'imos',
-                    date: '2020/11',
-                    subtitle: 'iPhone12 霧面玻璃手感',
-                },
-                {
-                    img: '/landingPage/12-orig-orig_orig.jpg',
-                    title: '蝦皮網拍',
-                    date: '2020/11',
-                    subtitle: '奈米透氣內褲',
-                },
-                {
-                    img: '/landingPage/picture_orig.jpg',
-                    title: 'imos',
-                    date: '2020/11',
-                    subtitle: 'iPhone12 玻璃保護貼',
-                },
-                {
-                    img: '/landingPage/picture-2_orig.jpg',
-                    title: 'Alesoi 美研所',
-                    date: '2021/01',
-                    subtitle: '好想牽愛爾蘭薔薇護手霜',
-                },
-            ]
-        }
+                { img: '/landingPage/01_orig.jpg', title: '小米', date: '2020/11', subtitle: '拓牛智能垃圾桶 T3' },
+                { img: '/landingPage/222_orig.jpg', title: '雲城', date: '2021/03', subtitle: 'Switch手把' },
+                { img: '/landingPage/333_orig.jpg', title: '小米', date: '2021/03', subtitle: '米家感應夜燈' },
+                { img: '/landingPage/444_orig.jpg', title: '小米', date: '2020/12', subtitle: '藍牙耳幾超級版' },
+                { img: '/landingPage/555_orig.jpg', title: 'imos', date: '2020/11', subtitle: 'iPhone12 霧面玻璃手感' },
+                { img: '/landingPage/12-orig-orig_orig.jpg', title: '蝦皮網拍', date: '2020/11', subtitle: '奈米透氣內褲' },
+                { img: '/landingPage/picture_orig.jpg', title: 'imos', date: '2020/11', subtitle: 'iPhone12 玻璃保護貼' },
+                { img: '/landingPage/picture-2_orig.jpg', title: 'Alesoi 美研所', date: '2021/01', subtitle: '好想牽愛爾蘭薔薇護手霜' },
+            ],
+            mockupSwiper: null,
+        };
     },
 
-    setup() {
-        onMounted(() => {
-            const mockupSwiper = new Swiper('.mockup-swiper', {
-                direction: "vertical",
-                slidesPerView: "auto",
-                freeMode: true,
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                },
-                mousewheel: true,
-            });
+    methods: {
+        onGalleryClick(index) {
+            if (this.mockupSwiper) {
+                this.mockupSwiper.slideTo(index);
+            }
+        },
+    },
 
-            const gallerySwiper = new Swiper('.gallery-swiper', {
-                centeredSlides: true,
-                speed: 3000,
-                loop: true,
-                autoplay: {
-                    delay: 1000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: false,
-                },
-                breakpoints: {
-                    0: {
-                        slidesPerView: 1.5,
-                        spaceBetween: 25,
-                    },
-
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 35,
-                    },
-
-                    1280: {
-                        slidesPerView: 3.5,
-                        spaceBetween: 55,
-                    }
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev'
-                },
-            });
+    mounted() {
+        const mockupSwiper = new Swiper('.mockup-swiper', {
+            direction: 'vertical',
+            speed: 1000,
+            slidesPerView: 'auto',
+            freeMode: true,
+            mousewheel: true,
+            scrollbar: {
+                el: ".swiper-scrollbar",
+                draggable: true,
+                hide: false,
+            },
         });
-    }
-}
+
+        const gallerySwiper = new Swiper('.gallery-swiper', {
+            centeredSlides: true,
+            speed: 3000,
+            loop: true,
+            autoplay: {
+                delay: 1000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+            },
+            breakpoints: {
+                0: { slidesPerView: 1.5, spaceBetween: 25 },
+                768: { slidesPerView: 2, spaceBetween: 35 },
+                1280: { slidesPerView: 3.5, spaceBetween: 55 },
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        nextTick(() => {
+            this.mockupSwiper = mockupSwiper;
+        });
+    },
+};
 </script>
+
+
 
 <style lang="scss">
 .landing-page {
@@ -218,13 +188,15 @@ export default {
         @include mix.d-flex(space-between, center);
         // padding-top: 80px;
 
-        // @include bp.media-down(lg) {
-        //     padding: 40px;
-        // }
+        @include bp.media-down(jumbo) {
+            padding-top: 40px;
+        }
 
-        // @include bp.media-down(md) {
-        //     flex-direction: column;
-        // }
+        @include bp.media-down(md) {
+            flex-direction: column;
+            gap: 10px;
+            // padding-top: 0;
+        }
     }
 
     // mockup
@@ -232,11 +204,16 @@ export default {
         position: relative;
         max-width: 430px;
         width: 100%;
+        height: 700px;
         margin: auto;
 
-        // @include bp.media-down(md) {
-        //     margin: 30px 0;
-        // }
+        @include bp.media-down(lg) {
+            height: 500px;
+        }
+
+        @include bp.media-down(md) {
+            height: 400px;
+        }
 
         &::before {
             content: '';
@@ -250,23 +227,45 @@ export default {
             pointer-events: none;
         }
 
+        .swiper-scrollbar {
+            position: absolute;
+            right: 8px;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            z-index: 10;
+
+            @include bp.media-down(lg) {
+                right: 6px;
+            }
+
+            @include bp.media-down(md) {
+                right: 4px;
+            }
+        }
+
+        .swiper-scrollbar-drag {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 3px;
+        }
+
         .mockup-swiper {
             width: 78%;
             position: relative;
             z-index: 1;
-            height: 700px;
+            height: 100%;
             border-radius: 50px;
             overflow: hidden;
 
-            @include bp.media-down(jumbo) {
-                width: 68%;
-                height: 600px;
+            @include bp.media-down(lg) {
+                width: 240px;
             }
 
-            @include bp.media-down(sm) {
-                width: 97%;
-                height: 400px;
-                border-radius: ˇ0px;
+            @include bp.media-down(md) {
+                width: 190px;
+                border-radius: 30px;
             }
         }
 
@@ -275,8 +274,10 @@ export default {
         }
 
         .mockup-slide {
+
             img {
                 width: 100%;
+                height: 100%;
                 display: block;
             }
         }
@@ -301,6 +302,10 @@ export default {
                 margin-left: 20rem;
             }
 
+            @include bp.media-down(md) {
+                margin-left: 0;
+            }
+
             .gallery-slide {
                 border-radius: 20px;
                 overflow: hidden;
@@ -312,9 +317,9 @@ export default {
                     height: 350px;
                 }
 
-                @include bp.media-down(sm) {
-                    height: 250px;
-                }
+                // @include bp.media-down(sm) {
+                //     height: 320px;
+                // }
 
                 img {
                     width: 100%;
@@ -343,10 +348,10 @@ export default {
                     transform: translateY(100%);
                     opacity: 0;
                     transition: transform 0.4s ease, opacity 0.4s ease;
-                    // pointer-events: none;
+                    pointer-events: none;
 
                     @include bp.media-down(sm) {
-                        position: relative;
+                        position: absolute;
                         opacity: 1;
                         transform: translateY(0);
                     }

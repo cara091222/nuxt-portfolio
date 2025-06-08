@@ -9,7 +9,7 @@
                         <h2 class="en-title">Banner</h2>
                     </div>
                     <h3 class="desc ">
-                        我常與不同的行銷單位合作，從主視覺到行銷宣傳，確保設計符合行銷目標。<br>
+                        我常與不同的行銷單位合作，從主視覺到行銷宣傳，確保設計符合行銷目標。
                         擅長設計清晰有力的Banner與E-DM，有效傳達資訊，並提升點擊率與轉換效果。
                     </h3>
                 </div>
@@ -180,7 +180,7 @@ export default {
         height: auto !important;
         position: absolute;
         z-index: 10;
-        margin-top: 331px;
+        margin-top: 332px;
         overflow: hidden;
 
         @include bp.media-down(jumbo) {

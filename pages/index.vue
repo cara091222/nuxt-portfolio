@@ -262,7 +262,7 @@
         height: auto !important;
         position: absolute;
         z-index: 10;
-        margin-top: 427px;
+        margin-top: 428px;
 
         @include bp.media-down(jumbo) {
             margin-top: 366px;
