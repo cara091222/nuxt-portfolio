@@ -37,7 +37,8 @@
             </div>
             <!-- LP -->
             <LandingPage />
-            <div class="circle-blue"></div>
+            <AppFooter />
+            <div class="circle-blue-b"></div>
             <div class="circle-yellow-b"></div>
         </div>
     </div>
@@ -192,91 +193,12 @@ export default {
         }
 
         @include bp.media-down(sm) {
-            margin-top: 281px;
-        }
-    }
-
-    .circle-blue {
-        position: fixed;
-        z-index: -1;
-        top: 30rem;
-        right: -3rem;
-        width: 325px;
-        height: 325px;
-        border-radius: 325px;
-        background: linear-gradient(143deg, rgba(50, 238, 255, 0.50) 8.32%, rgba(49, 255, 193, 0.50) 92.78%);
-        filter: blur(50px);
-        animation: floatUpB 4s ease-in-out infinite;
-
-        @include bp.media-down(jumbo) {
-            width: 260px;
-            height: 260px;
-            // right: 10rem;
-        }
-
-        @include bp.media-down(lg) {
-            width: 200px;
-            height: 200px;
-        }
-
-        @keyframes floatUpB {
-            0% {
-                top: 30rem;
-            }
-
-            50% {
-                top: 24rem;
-            }
-
-            100% {
-                top: 30rem;
-            }
-        }
-    }
-
-    .circle-yellow-b {
-        position: fixed;
-        z-index: -1;
-        bottom: 5rem;
-        left: 13rem;
-        width: 240px;
-        height: 240px;
-        border-radius: 240px;
-        transform: rotate(-136.812deg);
-        background: linear-gradient(147deg, rgba(255, 154, 0, 0.50) 13.74%, rgba(255, 245, 49, 0.50) 90.25%);
-        filter: blur(50px);
-        animation: floatDownC 4s ease-in-out infinite;
-
-        @include bp.media-down(jumbo) {
-            width: 180px;
-            height: 180px;
-            left: 10rem;
-        }
-
-        @include bp.media-down(lg) {
-            width: 120px;
-            height: 120px;
-            left: 0rem;
-        }
-
-        @keyframes floatDownC {
-            0% {
-                bottom: 8rem;
-            }
-
-            50% {
-                bottom: 2rem;
-            }
-
-            100% {
-                bottom: 8rem;
-            }
+            margin-top: 283px;
         }
     }
 
     // banner輪播
     .banner {
-
         .container-share {
             @include mix.d-flex(center, center, column);
         }

@@ -269,7 +269,7 @@
         }
 
         @include bp.media-down(sm) {
-            margin-top: 301px;
+            margin-top: 303px;
         }
     }
 }

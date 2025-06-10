@@ -242,6 +242,48 @@ body{
     }
 }
 
+.block-title {
+    padding-bottom: 30px;
+    border-bottom: 1px dashed var(--color-black);
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+
+    @include bp.media-down(sm) {
+        padding-bottom: 15px;
+    }
+
+    .en-title {
+        @include mix.en-fontF;
+        color: var(--color--black);
+        font-size: 56px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+
+        @include bp.media-down(sm) {
+            font-size: 40px;
+        }
+    }
+}
+
+.block-desc {
+    padding-top: 30px;
+    max-width: 780px;
+    width: 100%;
+    color: var(--color-sec);
+    @include mix.ls(0.4, 18);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 33px;
+
+    @include bp.media-down(sm) {
+        padding-top: 15px;
+    }
+}
+
 /*  ===== 共用padding設定 ===== */
 .padding-share {
     padding: 100px 0 ;
@@ -510,6 +552,143 @@ body{
     }
 
 }
+// 輪播點點
+.swiper-pagination {
+    @include mix.d-flex(center, center);
+    gap: 200px;
+
+    @include bp.media-down(lg) {
+        gap: 180px;
+    }
+
+    @include bp.media-down(sm) {
+        gap: 50px;
+    }
+
+    .swiper-pagination-bullet {
+        position: relative;
+        width: 15px;
+        height: 15px;
+        background: var(--color-main);
+        border-radius: 50%;
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+
+        &.swiper-pagination-bullet-active::after {
+            content: "";
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            width: 27px;
+            height: 27px;
+            border: 1px solid var(--color-main);
+            border-radius: 50%;
+            box-sizing: border-box;
+            animation: pulseRing 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+//  全站浮動背景
+.circle-blue-b {
+    position: fixed;
+    z-index: -1;
+    top: 30rem;
+    right: -3rem;
+    width: 325px;
+    height: 325px;
+    border-radius: 325px;
+    background: linear-gradient(143deg,
+            rgba(50, 238, 255, 0.5) 8.32%,
+            rgba(49, 255, 193, 0.5) 92.78%);
+    filter: blur(50px);
+    animation: floatUpB 4s ease-in-out infinite;
+
+    @include bp.media-down(jumbo) {
+        width: 260px;
+        height: 260px;
+        // right: 10rem;
+    }
+
+    @include bp.media-down(lg) {
+        width: 200px;
+        height: 200px;
+    }
+
+    @keyframes floatUpB {
+        0% {
+            top: 30rem;
+        }
+
+        50% {
+            top: 24rem;
+        }
+
+        100% {
+            top: 30rem;
+        }
+    }
+}
+
+.circle-yellow-b {
+    position: fixed;
+    z-index: -1;
+    bottom: 5rem;
+    left: 13rem;
+    width: 240px;
+    height: 240px;
+    border-radius: 240px;
+    transform: rotate(-136.812deg);
+    background: linear-gradient(147deg,
+            rgba(255, 154, 0, 0.5) 13.74%,
+            rgba(255, 245, 49, 0.5) 90.25%);
+    filter: blur(50px);
+    animation: floatDownC 4s ease-in-out infinite;
+
+    @include bp.media-down(jumbo) {
+        width: 180px;
+        height: 180px;
+        left: 10rem;
+    }
+
+    @include bp.media-down(lg) {
+        width: 120px;
+        height: 120px;
+        left: 0rem;
+    }
+
+    @keyframes floatDownC {
+        0% {
+            bottom: 8rem;
+        }
+
+        50% {
+            bottom: 2rem;
+        }
+
+        100% {
+            bottom: 8rem;
+        }
+    }
+}
+
 
 
 

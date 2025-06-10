@@ -1,15 +1,14 @@
 <template>
     <div class="landing-page">
         <div class="container-share">
-            <div class="title">
+            <div class="block-title">
                 <h2 class="en-title">Landing Page</h2>
             </div>
-            <h3 class="desc">
+            <h3 class="block-desc">
                 Landing Page除了視覺統一，我有時也會親自拍攝商品，確保畫面的一致性。
                 詳情頁面設計以引導使用者操作為重點，可以清楚了解商品的調性與用途。
             </h3>
         </div>
-
         <div class="landing-page-wrap">
             <!-- mockup swiper -->
             <div class="mockup-frame">
@@ -22,7 +21,6 @@
                     <div class="swiper-scrollbar"></div>
                 </div>
             </div>
-
             <!-- gallery swiper -->
             <div class="swiper gallery-swiper">
                 <div class="swiper-wrapper gallery-wrapper">
@@ -140,49 +138,6 @@ export default {
     .container-share {
         @include mix.d-flex(center, center, column);
     }
-
-    .title {
-        padding-bottom: 30px;
-        border-bottom: 1px dashed var(--color-black);
-        width: 100%;
-        max-width: 450px;
-        margin: auto;
-
-        @include bp.media-down(sm) {
-            padding-bottom: 15px;
-        }
-
-        .en-title {
-            @include mix.en-fontF;
-            color: var(--color--black);
-            font-size: 56px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            text-align: center;
-
-            @include bp.media-down(sm) {
-                font-size: 40px;
-            }
-        }
-    }
-
-    .desc {
-        padding-top: 30px;
-        max-width: 780px;
-        width: 100%;
-        color: var(--color-sec);
-        @include mix.ls(0.4, 18);
-        text-align: center;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 33px;
-
-        @include bp.media-down(sm) {
-            padding-top: 15px;
-        }
-    }
-
 
     &-wrap {
         @include mix.d-flex(space-between, center);

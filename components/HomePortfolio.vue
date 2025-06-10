@@ -46,12 +46,12 @@ export default {
             {
                 img: '/images/ui_cover.png',
                 title: 'UI / UX',
-                link: '',
+                link: '/UIUXPage',
             },
             {
                 img: '/images/web_cover.png',
                 title: 'Web Design',
-                link: '',
+                link: '/WebPage',
             },
         ];
 

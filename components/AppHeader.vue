@@ -10,8 +10,8 @@
                         <a class="main-link" data-hash="#HomePortfolio">作品集</a>
                         <ul class="nav-sec">
                             <li class="sec-item"><a href="/GraphicDesignPage">平面設計</a></li>
-                            <li class="sec-item"><a href="javascript:void(0)">UI / UX</a></li>
-                            <li class="sec-item"><a href="javascript:void(0)">網站設計</a></li>
+                            <li class="sec-item"><a href="/UIUXPage">UI / UX</a></li>
+                            <li class="sec-item"><a href="/WebPage">網站設計</a></li>
                         </ul>
                     </li>
                 </ul>

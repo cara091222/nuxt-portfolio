@@ -103,7 +103,7 @@ export default {
         position: absolute;
         width:350px;
         height: 350px;
-        border-radius: 350px;
+        border-radius: 50rem;
         background: linear-gradient(147deg, rgba(255, 154, 0, 0.50) 13.74%, rgba(255, 245, 49, 0.50) 90.25%);
         filter: blur(50px);
         top: -9rem;
