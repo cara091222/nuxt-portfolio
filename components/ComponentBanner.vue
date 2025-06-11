@@ -116,6 +116,11 @@ export default {
             height: 260px;
         }
 
+        @include bp.media-down(sm) {
+            width:220px;
+            height: 220px;
+        }
+
         @keyframes floatUp {
         0% {
             top: -9rem;

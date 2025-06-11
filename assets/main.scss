@@ -412,6 +412,10 @@ body{
             transform: translateX(0);
             opacity: 1;
         }
+
+        &.delay__750{
+            transition-delay: .75s;
+        }
     }
 
     &.fadeLeft{
@@ -421,6 +425,10 @@ body{
         &.in{
             transform: translateX(0);
             opacity: 1;
+        }
+
+        &.delay__750{
+            transition-delay: .75s;
         }
     }
 

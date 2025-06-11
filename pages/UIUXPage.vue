@@ -71,7 +71,7 @@ export default {
                 },
                 {
                     img: '/UI/加賀屋.png',
-                    title: '加賀屋',
+                    title: '北投日勝生加賀屋',
                     date: '2023/10',
                     subtitle: '本網站以「科技感 × 工業應用」為設計核心，透過視覺想要傳達 SINTRONES 專注於車載運算、智慧工業與 AI 解決方案的專業形象。',
                     descList: [

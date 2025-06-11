@@ -174,7 +174,7 @@ export default {
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url(/images/phone.png);
+            background-image: url(/images/phone_02.png);
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -184,7 +184,7 @@ export default {
 
         .swiper-scrollbar {
             position: absolute;
-            right: 8px;
+            right: 5px;
             top: 0;
             bottom: 0;
             width: 6px;
@@ -193,11 +193,11 @@ export default {
             z-index: 10;
 
             @include bp.media-down(lg) {
-                right: 6px;
+                right: 3px;
             }
 
             @include bp.media-down(md) {
-                right: 4px;
+                right: 1px;
             }
         }
 
@@ -207,19 +207,21 @@ export default {
         }
 
         .mockup-swiper {
-            width: 78%;
-            position: relative;
+            width:320px;
+            @include mix.poa-center;
             z-index: 1;
-            height: 100%;
+            height: 95%;
             border-radius: 50px;
             overflow: hidden;
 
             @include bp.media-down(lg) {
-                width: 240px;
+                width: 230px;
+                border-radius: 40px;
+                height: 96%;
             }
 
             @include bp.media-down(md) {
-                width: 190px;
+                width: 180px;
                 border-radius: 30px;
             }
         }
@@ -264,7 +266,7 @@ export default {
             .gallery-slide {
                 border-radius: 20px;
                 overflow: hidden;
-                height: 500px;
+                height: 450px;
                 width: auto;
                 position: relative;
 

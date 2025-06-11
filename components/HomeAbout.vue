@@ -5,7 +5,7 @@
                 <div class="content">
                     <div class="title">
                         <h2 class="title-main-share">關於我</h2>
-                        <h3 class="title-en">About</h3>
+                        <h3 class="title-en animation__el fadeLeft delay__750">About</h3>
                     </div>
                     <p v-for="(item, index) in desc" :key="index" class="desc">{{ item.text }}</p>
                 </div>
@@ -18,7 +18,10 @@
 </template>
 
 <script>
+import jQuery from "jquery";
+
 export default {
+
     data() {
         return {
             desc: [
@@ -32,6 +35,23 @@ export default {
                     text: '雖非科班出身，但我樂於學習、積極進修，努力朝全方位工程師的目標邁進。我相信設計是連結用戶與品牌的重要橋樑，我也希望將自身的美感、邏輯與技術整合，創造更多兼具美觀與實用的數位體驗。',
                 },
             ]
+        }
+    },
+
+    mounted() {
+        const el = this.$el.querySelector('.animation__el')
+        if (el) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in')
+                        observer.unobserve(entry.target)  // 只加一次
+                    }
+                })
+            }, {
+                threshold: 0.1,
+            })
+            observer.observe(el)
         }
     }
 }
@@ -91,7 +111,7 @@ export default {
             padding: 30px;
             width: 100%;
             height: 100%;
-            
+
             @include bp.media-down(sm) {
                 width: 85%;
             }

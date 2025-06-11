@@ -13,8 +13,8 @@
                             </a>
                             <div class="item-content">
                                 <h3 class="item-title">{{ item.title }}<span>{{ item.date }}</span> </h3>
-                                <p class="item-type">{{ item.type }}</p>
-                                <p class="item-skill">{{ item.skill }}</p>
+                                <p class="item-type">類型：{{ item.type }}</p>
+                                <p class="item-skill">選用技術：{{ item.skill }}</p>
                                 <p class="item-desc">{{ item.desc }}</p>
                             </div>
                         </div>
@@ -35,21 +35,21 @@ export default {
             web: [
                 {
                     img: '/web/DigitSpark.png',
-                    title: 'Digit Spark 品牌官網',
-                    date: '2020/03',
-                    type: '類型：客製化官網',
-                    skill: '選用技術： JavaScript / SCSS / HTML / WordPress / ACF / REST API ',
+                    title: 'Digit Spark',
+                    date: '2025/02',
+                    type: '客製化官網',
+                    skill: 'JavaScript / SCSS / HTML / WordPress / ACF / REST API ',
                     desc: '負責網站整體切版與前端互動開發，採用 HTML5、SCSS 與 jQuery 建置響應式版型，並串接 REST API實現資料即時載入。後台結合 ACF 模組化管理內容，搭配多層分類與篩選功能，提升前後端操作效率。',
                     link: 'https://digitspark.co/',
                 },
                 {
-                    img: '/web/DigitSpark.png',
-                    title: 'Digit Spark 品牌官網',
-                    date: '2020/03',
-                    type: '類型：客製化官網',
-                    skill: '選用技術： JavaScript / SCSS / HTML / WordPress / ACF / REST API ',
-                    desc: '負責網站整體切版與前端互動開發，採用 HTML5、SCSS 與 jQuery 建置響應式版型，並串接 REST API實現資料即時載入。後台結合 ACF 模組化管理內容，搭配多層分類與篩選功能，提升前後端操作效率。',
-                    link: 'https://digitspark.co/',
+                    img: '/web/樂憶.png',
+                    title: '樂憶國際旅行社',
+                    date: '2024/10',
+                    type: '客製化官網',
+                    skill: 'jQuery / SCSS / HTML / WordPress / ACF / REST API ',
+                    desc: '負責全站前端切版與互動功能開發，使用 HTML、SCSS 建構響應式頁面。透過 jQuery 實作選單展開、頁面切換、動畫效果等互動功能，提升整體使用者流暢性。後台搭配 ACF（Advanced Custom Fields）實作模組化內容管理，提供非技術人員易於操作的後台介面。並透過 REST API 串接前後端資料，實現資料即時載入與動態內容更新。',
+                    link: 'https://www.lovelytravel.com.tw/',
                 },
             ]
         };
@@ -102,6 +102,10 @@ export default {
         @include mix.d-flex(center, center, column);
         gap: 60px;
 
+        @include bp.media-down(sm) {
+            gap: 30px;
+        }
+
         .item {
             @include mix.d-flex(space-around, start);
             gap: 60px;
@@ -110,6 +114,10 @@ export default {
             @include bp.media-down (lg) {
                 flex-direction: column;
                 gap: 30px;
+            }
+
+            @include bp.media-down (sm) {
+                gap: 20px;
             }
 
             &:nth-child(even) {
@@ -129,6 +137,11 @@ export default {
 
                 @include bp.media-down (lg) {
                     width: 100%;
+                }
+
+                @include bp.media-down (sm) {
+                    border-radius: 20px;
+                    padding-top: calc(420px / 1.89);
                 }
 
                 &:hover::after {
