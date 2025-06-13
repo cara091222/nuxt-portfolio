@@ -2,14 +2,14 @@
     <div class="home-about padding-small-share" id="HomeAbout">
         <div class="container-share">
             <div class="home-about-wrap">
-                <div class="content">
+                <div class="content  animation__el fadeLeft ">
                     <div class="title">
                         <h2 class="title-main-share">關於我</h2>
                         <h3 class="title-en animation__el fadeLeft delay__750">About</h3>
                     </div>
                     <p v-for="(item, index) in desc" :key="index" class="desc">{{ item.text }}</p>
                 </div>
-                <div class="img">
+                <div class="img animation__el fadeRight">
                     <img src="/images/tool.png" alt="">
                 </div>
             </div>
@@ -38,22 +38,22 @@ export default {
         }
     },
 
-    mounted() {
-        const el = this.$el.querySelector('.animation__el')
-        if (el) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in')
-                        observer.unobserve(entry.target)  // 只加一次
-                    }
-                })
-            }, {
-                threshold: 0.1,
-            })
-            observer.observe(el)
-        }
-    }
+    // mounted() {
+    //     const el = this.$el.querySelector('.animation__el')
+    //     if (el) {
+    //         const observer = new IntersectionObserver((entries) => {
+    //             entries.forEach(entry => {
+    //                 if (entry.isIntersecting) {
+    //                     entry.target.classList.add('in')
+    //                     observer.unobserve(entry.target)  // 只加一次
+    //                 }
+    //             })
+    //         }, {
+    //             threshold: 0.1,
+    //         })
+    //         observer.observe(el)
+    //     }
+    // }
 }
 </script>
 

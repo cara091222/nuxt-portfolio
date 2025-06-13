@@ -1,5 +1,5 @@
 <template>
-    <div class="landing-page">
+    <div class="landing-page animation__el fadeUp">
         <div class="container-share">
             <div class="block-title">
                 <h2 class="en-title">Landing Page</h2>

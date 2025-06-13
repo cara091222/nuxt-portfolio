@@ -63,4 +63,10 @@ export default defineNuxtConfig({
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
   ],
+
+  // 整站共用js
+  plugins: [
+    { src: '~/plugins/auto-animation.client.js', mode: 'client' }
+  ],
+  
 })

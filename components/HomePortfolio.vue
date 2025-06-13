@@ -1,7 +1,7 @@
 <template>
-    <div class="home-portfolio" id="HomePortfolio">
+    <div class="home-portfolio animation__el fadeUp" id="HomePortfolio">
         <div class="title-share">
-            <h3 class="title-en">Portfolio</h3>
+            <h3 class="title-en animation__el fadeUp delay__750">Portfolio</h3>
             <h2 class="title-main-share">作品集</h2>
         </div>
         <div class="swiper portfolio-swiper">

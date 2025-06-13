@@ -3,7 +3,7 @@
         <ComponentBanner enName="Portfolio" nameHighlight="作品集" subtitle="Graphic Design" />
         <div class="scrolling">
             <!-- banner -->
-            <div class="banner padding-share">
+            <div class="banner padding-share animation__el fadeUp">
                 <div class="container-share">
                     <div class="title">
                         <h2 class="en-title">Banner</h2>

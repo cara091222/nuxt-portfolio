@@ -1,8 +1,8 @@
 <template>
-    <div class="home-experience padding-share" id="HomeExperience">
+    <div class="home-experience padding-share animation__el fadeUp" id="HomeExperience">
         <div class="container-share">
             <div class="title-share">
-                <h3 class="title-en">Experience</h3>
+                <h3 class="title-en animation__el fadeUp delay__750">Experience</h3>
                 <h2 class="title-main-share">工作經歷</h2>
             </div>
             <div class="home-experience-wrap">

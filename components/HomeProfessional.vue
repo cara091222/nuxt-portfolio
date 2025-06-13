@@ -1,9 +1,9 @@
 <template>
-    <div class="home-professional ">
+    <div class="home-professional animation__el fadeUp">
         <div class="container-share">
             <div class="home-professional-wrap">
                 <div class="title-share">
-                    <h3 class="title-en">Skill</h3>
+                    <h3 class="title-en animation__el fadeUp delay__750">Skill</h3>
                     <h2 class="title-main-share">專業技能</h2>
                 </div>
                 <div class="skill">
