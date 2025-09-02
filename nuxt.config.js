@@ -4,14 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   head: {
-    title: 'cara',
+    title: 'Cara Lin – 個人作品集｜網頁設計｜前端開發',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Cara Lin 的個人作品集，展示網頁設計與前端開發作品' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
