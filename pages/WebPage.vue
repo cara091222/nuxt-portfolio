@@ -8,7 +8,7 @@
                         Fields）製作彈性後台，提升網站的維護效率與編輯體驗。</h3>
                     <div class="item-wrap">
                         <div v-for="(item, index) in web" :key="index" class="item">
-                            <a :href="item.link" class="item-img img-cover" target="_blank">
+                            <a :href="item.link" class="item-img" target="_blank">
                                 <img :src="item.img" alt="">
                             </a>
                             <div class="item-content">
@@ -38,8 +38,8 @@ export default {
                     title: '國泰人壽新住民金融網頁',
                     date: '2025/08',
                     type: '客製化一頁式網頁',
-                    skill: 'Vue2 / jQuery  / SCSS / HTML ',
-                    desc: '負責網站整體切版與前端互動開發，採用 HTML5、SCSS 與 jQuery 建置響應式版型，並串接 REST API實現資料即時載入。後台結合 ACF 模組化管理內容，搭配多層分類與篩選功能，提升前後端操作效率。',
+                    skill: 'Vue3 / jQuery  / SCSS / HTML ',
+                    desc: '負責網站前端架構與互動設計，採用 Vue 3、SCSS 與 HTML5 建置響應式一頁式網頁，並整合 jQuery 實現平滑滾動與互動特效。透過元件化開發提升程式維護性，同時兼顧跨裝置相容性與載入效能，提供良好的使用體驗。',
                     link: 'https://digitspark.co/',
                 },
                 {
@@ -200,11 +200,10 @@ export default {
                 }
             }
 
-            .img-cover {
+            .item-img {
                 border-radius: 30px;
                 overflow: hidden;
                 width: 45%;
-                padding-top: calc(560px / 1.89);
                 position: relative;
 
                 @include bp.media-down (lg) {
@@ -213,7 +212,6 @@ export default {
 
                 @include bp.media-down (sm) {
                     border-radius: 20px;
-                    padding-top: calc(420px / 1.89);
                 }
 
                 &:hover::after {
@@ -252,6 +250,12 @@ export default {
                     opacity: 0;
                     overflow: hidden;
                     transition: all .3s ease-in-out;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;;
                 }
             }
 
