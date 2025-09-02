@@ -34,11 +34,20 @@ export default {
         return {
             web: [
                 {
+                    img: '/web/國泰人壽_cover.png',
+                    title: '國泰人壽新住民金融網頁',
+                    date: '2025/08',
+                    type: '客製化一頁式網頁',
+                    skill: 'Vue2 / jQuery  / SCSS / HTML ',
+                    desc: '負責網站整體切版與前端互動開發，採用 HTML5、SCSS 與 jQuery 建置響應式版型，並串接 REST API實現資料即時載入。後台結合 ACF 模組化管理內容，搭配多層分類與篩選功能，提升前後端操作效率。',
+                    link: 'https://digitspark.co/',
+                },
+                {
                     img: '/web/DigitSpark.png',
                     title: 'Digit Spark',
                     date: '2025/02',
                     type: '客製化官網',
-                    skill: 'JavaScript / SCSS / HTML / WordPress / ACF / REST API ',
+                    skill: 'jQuery  / SCSS / HTML / WordPress / ACF / REST API ',
                     desc: '負責網站整體切版與前端互動開發，採用 HTML5、SCSS 與 jQuery 建置響應式版型，並串接 REST API實現資料即時載入。後台結合 ACF 模組化管理內容，搭配多層分類與篩選功能，提升前後端操作效率。',
                     link: 'https://digitspark.co/',
                 },
