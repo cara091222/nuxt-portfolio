@@ -40,7 +40,7 @@ export default {
                     type: '客製化一頁式網頁',
                     skill: 'Vue3 / jQuery  / SCSS / HTML ',
                     desc: '負責網站前端架構與互動設計，採用 Vue 3、SCSS 與 HTML5 建置響應式一頁式網頁，並整合 jQuery 實現平滑滾動與互動特效。透過元件化開發提升程式維護性，同時兼顧跨裝置相容性與載入效能，提供良好的使用體驗。',
-                    link: 'https://digitspark.co/',
+                    link: 'https://www.cathaylife.com.tw/cathaylife/webStatics/newresidents/lifeservices/index.html',
                 },
                 {
                     img: '/web/DigitSpark.png',
