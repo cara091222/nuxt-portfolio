@@ -66,20 +66,40 @@ export default {
                 direction: 'horizontal',
                 loop: true,
                 effect: 'coverflow',
-                centeredSlides: 'auto',
-                slidesPerView: 'auto',
-                // spaceBetween: 30,
+                centeredSlides: true,
+                slidesPerView: 2.3,
                 coverflowEffect: {
                     rotate: 0, // 滑塊旋轉角度，根據需要調整
-                    stretch: 20, // 滑塊之間的拉伸距離
-                    depth: 500, // 滑塊的深度效果
+                    depth: 300, // 滑塊的深度效果
                     modifier: 1, // 效果倍增器
                     slideShadows: false,
                 },
+                breakpoints: {
+                    0: {
+                        coverflowEffect: {
+                            stretch: 40,
+                        },
+                        slidesPerView: 1.5,
+                    },
+                    768: {
+                        coverflowEffect: {
+                            stretch: 100,
+                            depth: 200,
+                        },
+                        slidesPerView: 'auto',
+                    },
+                    1200: {
+                        coverflowEffect: {
+                            stretch: 180,
+                        },
+                    },
+                },
+
                 speed: 2000,
                 initialSlide: 0,
                 autoplay: {
                     delay: 3000,
+                    disableOnInteraction: false,
                 },
                 navigation: {
                     nextEl: '.swiper-button-next',
@@ -93,6 +113,8 @@ export default {
 
 <style lang="scss">
 .home-portfolio {
+    position: relative;
+    z-index: 100;
     padding: 50px 0 100px 0;
     @include mix.d-flex(center, center, column);
 
@@ -111,7 +133,9 @@ export default {
 
     .portfolio-swiper {
         height: 100%;
-        max-width: 100%;
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 20px;
     }
 
     .portfolio-wrapper {
@@ -120,12 +144,12 @@ export default {
 
     .portfolio-slide {
         padding: 60px 0;
-        width: 560px;
+        width: auto;
         height: auto;
         @include mix.d-flex(center, center, column);
 
         &:not(.swiper-slide-active) {
-            filter: blur(15px);
+            filter: blur(10px);
         }
 
         // 只有 active 有 drop shadow 且無模糊
@@ -183,7 +207,7 @@ export default {
                 }
 
                 @include bp.media-down(jumbo) {
-                    font-size: 20px;
+                    font-size: 18px;
                 }
             }
         }
