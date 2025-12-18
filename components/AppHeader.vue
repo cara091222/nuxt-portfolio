@@ -11,7 +11,7 @@
                         <ul class="nav-sec">
                             <li class="sec-item"><a href="/GraphicDesignPage">平面設計</a></li>
                             <li class="sec-item"><a href="/UIUXPage">UI / UX</a></li>
-                            <li class="sec-item"><a href="/WebPage">網站設計</a></li>
+                            <li class="sec-item"><a href="/WebPage">網頁前端</a></li>
                         </ul>
                     </li>
                 </ul>
